@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-function Footer() {
+function Footer(){
     return (
-        <footer className="bg-gray-200 text-center text-xs p-3 absolute bottom-0 w-full">
-           $copy: Copyright 2021
+        <footer className="bg-gray-200 text-center text-xs p-3 absolute bottom-0 w-full border-t">
+            &copy; Copyright 2020
         </footer>
-    );
+    )
 }
 
-export default Footer;
+export default Footer

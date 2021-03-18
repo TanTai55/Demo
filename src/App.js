@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
-import { 
+import {
     BrowserRouter as Router,
     Switch,
+    useLocation,
     Route,
     Link
- } from "react-router-dom";
+} from "react-router-dom";
 
 import './App.css'
-import Title from './components/Title';
-import Search from './components/Search';
-import Sort from './components/Sort';
-import Form from './components/Form';
-import ListItem from './components/ListItem';
-import CounterExample from './components/CounterExample';
+
+
 import Header from './components/Header';
 import Footer from './components/Footer';
 import "tailwindcss/tailwind.css"
@@ -22,34 +19,21 @@ import Product from './Views/Product'
 
 
 function App() {
-        return (
-            <div>
-                <Router>
+    return (
+        <div className="relative pb-10 min-h-screen">
+            <Router>
                 <Header />
                 <div className="p-3">
-                     <Switch>
-                        <Router exact path="/">
-                            <Home/>
-                        </Router>
-
-                        <Router path="/about">
-                            <About/>
-                        </Router>
-                        
-                            <Router path="/products/:id">
-                                
-                            <Product />
-                        </Router>
-                            
-                    </Switch>        
-                    </div>
-                    
+                    <Switch>
+                        <Router exact path="/"> <Home /> </Router>
+                        <Route path="/about"> <About /> </Route>
+                        <Route path="/products/:id"> <Product />  </Route>
+                    </Switch>
+                </div>
                 <Footer />
-                </Router>  
-
-            </div>
+            </Router>
+        </div>
     );
 }
 
 export default App;
- 

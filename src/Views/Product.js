@@ -1,45 +1,48 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import Loader from '../components/Loader'
+import { useAxiosGet } from '../Hooks/HttpRequest';
 
 
 
 function Product() {
-  const { id } = useParams()
+  const { id } = useParams();
   const url = `https://6033a638843b15001793146f.mockapi.io/api/v1/products/${id}`
-  const [product, setProduct] = useState(null)
+  
+  let product = useAxiosGet(url)
 
   let content = null
 
-  useEffect(() => {
-    axios.get(url)
-      .then(response => {
-        setProduct(response.data)
-      })
-  }, [url])
+  if (product.error) {
+    content = <p>There was an error please refresh or try again later.</p>
+  }
 
-  if (product) {
+  if (product.loading) {
+    content = <Loader></Loader>
+  }
+
+  if (product.data) {
     
     content =
     <div>
       <h1 className="text-2xl font-bold mb-3">
-          {product.name}
+          {product.data.name}
       </h1>
       
         <div>
           
           <img
-            src= {product.images[0].imageUrl}
-            alt={product.name}
+            src= {product.data.images[0].imageUrl}
+            alt={product.data.name}
           />
           
         </div>
       
         <div className="font-bold text-xl mb-3">
-          $ {product.price}
+          $ {product.data.price}
         </div>
         <div>
-          {product.material}
+          {product.data.material}
         </div>
     </div>
 
@@ -52,4 +55,4 @@ function Product() {
     </div>
   )
 }
-export default Product
+export default Product;
