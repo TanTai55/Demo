@@ -16,6 +16,8 @@ import "tailwindcss/tailwind.css"
 import Home from './Views/Home'
 import About from './Views/About'
 import Product from './Views/Product'
+import Address from './Views/Address';
+
 
 
 function App() {
@@ -25,8 +27,9 @@ function App() {
                 <Header />
                 <div className="p-3">
                     <Switch>
-                        <Router exact path="/"> <Home /> </Router>
+                        <Route exact path="/"> <Home /> </Route>
                         <Route path="/about"> <About /> </Route>
+                        <Route path="/address"> <Address /> </Route>
                         <Route path="/products/:id"> <Product />  </Route>
                     </Switch>
                 </div>

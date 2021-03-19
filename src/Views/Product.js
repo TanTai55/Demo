@@ -13,46 +13,33 @@ function Product() {
 
   let content = null
 
-  if (product.error) {
-    content = <p>There was an error please refresh or try again later.</p>
-  }
+  if (product.error) { content = <p>There was an error please refresh or try again later.</p> }
 
-  if (product.loading) {
-    content = <Loader></Loader>
-  }
+  if (product.loading) { content = <Loader></Loader> }
 
   if (product.data) {
     
     content =
     <div>
-      <h1 className="text-2xl font-bold mb-3">
-          {product.data.name}
-      </h1>
-      
+      <h1 className="text-2xl font-bold mb-3"> {product.data.name} </h1>
         <div>
-          
           <img
             src= {product.data.images[0].imageUrl}
             alt={product.data.name}
           />
-          
-        </div>
+      </div>
       
-        <div className="font-bold text-xl mb-3">
-          $ {product.data.price}
-        </div>
-        <div>
-          {product.data.material}
-        </div>
+        <div className="font-bold text-xl mb-3"> ${product.data.price} </div>
+    
+        <div> {product.data.material} </div> 
+
     </div>
 
     
   }
 
   return (
-    <div>
-      {content}
-    </div>
+    <div> {content} </div>
   )
 }
 export default Product;
