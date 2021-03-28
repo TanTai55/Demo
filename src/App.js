@@ -17,6 +17,7 @@ import Home from './Views/Home'
 import About from './Views/About'
 import Product from './Views/Product'
 import Address from './Views/Address';
+import Example from './components/Example';
 
 
 
@@ -34,6 +35,7 @@ function App() {
                     </Switch>
                 </div>
                 <Footer />
+                {/* <Example /> */}
             </Router>
         </div>
     );

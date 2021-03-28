@@ -28,6 +28,8 @@ function Navigation() {
                 onClick={ () => setShowMenu(!showMenu)}
             />
             </span>
+            
+            {/* icon menu */}
 
             {
                 maskTransitions.map(({ item, key, props }) =>
